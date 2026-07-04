@@ -1,0 +1,100 @@
+aid: zenmaid
+name: ZenMaid
+review:
+  question: Does ZenMaid expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-04'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. ZenMaid has no public API surface of
+    any kind - REST, GraphQL, or WebSocket - to model. Its only documented
+    programmatic mechanism is a Zapier app built by ZenMaid against a private
+    backend API; Zapier's polling/webhook plumbing is not a server-push
+    transport (WebSocket or SSE) that ZenMaid exposes for outside developers
+    to connect to directly.
+findings:
+  summary: |
+    ZenMaid does not publish a public developer API of any kind - no REST API
+    reference, no GraphQL schema, no WebSocket endpoint, no OpenAPI
+    specification, and no self-service developer portal or API key
+    management screen were found anywhere on zenmaid.com, get.zenmaid.com,
+    app.zenmaid.com, or the ZenMaid Help Center (answers.zenmaid.com).
+    ZenMaid is scheduling and business-management software for maid and house
+    cleaning services (booking, calendar/dispatch, automated SMS/email,
+    GPS-verified cleaner clock-in/out, online payments, invoicing, payroll,
+    reporting). Its only documented programmatic surface is an official
+    Zapier integration (zapier.com/apps/zenmaid-nWD) exposing triggers - New
+    Customer Created, Appointment Booked, Appointment Cancelled, Appointment
+    Updated, Contact Created, Contact Updated, One-Time Service
+    Created/Updated, Recurring Service Created/Updated/Cancelled, Invoice
+    Created, Invoice Paid - and actions - Create Appointment, Create Booking,
+    Create Cleaner, Create Customer. ZenMaid's own help articles describe
+    connecting Zapier from the in-app Settings > Integrations screen and note
+    that payment processing (Square, Venmo, etc.) and cost transfers are not
+    supported through Zapier. No base URL, endpoint path, authentication
+    scheme, payload schema, rate limit, or changelog is published for the
+    API that powers this Zapier app - it is a private backend that Zapier
+    was granted bespoke access to, not a documented product a third-party
+    developer can register against. A viaSocket-hosted "ZenMaid MCP Server"
+    surfaces the same Zapier triggers/actions to AI agents (ChatGPT, Claude,
+    Cursor) but is itself built on top of Zapier's ZenMaid connector, not a
+    separate or more open ZenMaid API.
+  openSource: |
+    ZenMaid is closed-source, proprietary SaaS. Its public GitHub
+    organization (github.com/zenmaid, "Simple scheduling software for maid
+    services," 3 followers) has no public repositories at all - nothing
+    resembling a published SDK, API client, or specification.
+  transports:
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: No public REST API reference or OpenAPI document found anywhere on zenmaid.com, get.zenmaid.com, app.zenmaid.com, or the ZenMaid Help Center.
+    - protocol: GraphQL
+      scheme: https
+      documented: false
+      note: No GraphQL endpoint or schema documented.
+    - protocol: Webhook
+      scheme: https
+      documented: false
+      note: >-
+        No self-service outbound webhook feature of ZenMaid's own is
+        documented for third-party developers. Some help articles reference
+        pasting a "Zapier Webhook URL" into a ZenMaid field, but that is
+        consuming Zapier's generic Webhooks-by-Zapier action, not a ZenMaid
+        webhook product.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented anywhere on ZenMaid's site or help center as of the review date.
+  endpointsModeled: none
+sources:
+  - url: https://get.zenmaid.com/zapier
+    type: Documentation
+    note: ZenMaid's own Zapier landing page - describes connecting via "no technical skills required," lists example triggers/actions, and states payment processing is unsupported through Zapier. No API keys or developer docs mentioned.
+  - url: https://zapier.com/apps/zenmaid-nWD/integrations
+    type: Documentation
+    note: Zapier's ZenMaid app page listing the full set of triggers (Appointment Status Updated, Booking Created, Contact Created/Updated, Invoice Created/Paid, One-Time/Recurring Service events) and actions (Create Appointment, Create Booking, Create Cleaner, Create Customer).
+  - url: https://answers.zenmaid.com/en/collections/39144-integrations
+    type: Documentation
+    note: ZenMaid Help Center Integrations collection - all articles are about connecting third-party apps (Zapier, QuickBooks, payment processors) through the ZenMaid UI; no developer/API category.
+  - url: https://answers.zenmaid.com/en/articles/2986670-how-to-connect-zenmaid-with-zapier
+    type: Documentation
+    note: Step-by-step Zapier connection guide from inside ZenMaid Settings; no mention of API keys or a developer console.
+  - url: https://github.com/zenmaid
+    type: SourceCode
+    note: Public GitHub organization exists but has no public repositories - no published SDK, client library, or API spec.
+  - url: https://zapier.com/mcp/zenmaid-nWD
+    type: Other
+    note: Zapier MCP wrapper exposing the same ZenMaid Zapier triggers/actions to AI agents - confirms the integration surface is Zapier's connector, not a native ZenMaid API.
+  - url: https://viasocket.com/mcp/zenmaid
+    type: Other
+    note: Third-party MCP server for ZenMaid, also built on top of Zapier-style actions rather than a documented ZenMaid API.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No public API surface (REST, GraphQL, or WebSocket) exists to catalog or
+    model with AsyncAPI. apis.yml documents ZenMaid as a stub with an empty
+    apis array and an honest description of the Zapier-only, private-backend
+    integration model.

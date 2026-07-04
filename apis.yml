@@ -1,0 +1,51 @@
+aid: zenmaid
+url: https://raw.githubusercontent.com/api-evangelist/zenmaid/refs/heads/main/apis.yml
+name: ZenMaid
+kind: company
+description: >-
+  ZenMaid is scheduling and business-management software for maid and house
+  cleaning services - booking, calendar/dispatch, automated SMS and email
+  communication, GPS-verified clock-in/out on a cleaner mobile app, online
+  payments and invoicing, payroll, and reporting. ZenMaid has no public,
+  self-service developer portal, no published REST/GraphQL API reference, and
+  no OpenAPI specification of its own. Its only documented programmatic
+  surface is a Zapier integration (triggers - New Customer Created,
+  Appointment Booked, Appointment Cancelled, Appointment Updated, Contact
+  Created/Updated, One-Time Service Created/Updated, Recurring Service
+  Created/Updated/Cancelled, Invoice Created, Invoice Paid; actions - Create
+  Appointment, Create Booking, Create Cleaner, Create Customer) built and
+  maintained by ZenMaid against a private, undocumented backend API. No API
+  keys, base URL, endpoint reference, payload schema, or SDK are published for
+  third-party developers; the public GitHub organization (github.com/zenmaid)
+  has no public repositories. This entry is documented as a stub because
+  there is no public API to catalog.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Maid Service
+- Cleaning Business Software
+- Field Service
+- Scheduling
+- Zapier
+- No Public API
+created: '2026-07-04'
+modified: '2026-07-04'
+specificationVersion: '0.19'
+apis: []
+common:
+- type: Website
+  url: https://www.zenmaid.com
+- type: LinkedIn
+  url: https://www.linkedin.com/company/zenmaid
+- type: GitHubOrganization
+  url: https://github.com/zenmaid
+- type: Integrations
+  url: https://get.zenmaid.com/zapier
+- type: Documentation
+  url: https://answers.zenmaid.com/en/collections/39144-integrations
+- type: HelpCenter
+  url: https://answers.zenmaid.com
+- type: Plans
+  url: plans/zenmaid-plans-pricing.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

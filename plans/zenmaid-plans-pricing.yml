@@ -1,0 +1,147 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: ZenMaid
+providerId: zenmaid
+created: '2026-07-04'
+modified: '2026-07-04'
+reconciled: false
+tags:
+- Maid Service
+- Cleaning Business Software
+- Scheduling
+- Plans
+description: >-
+  ZenMaid sells three monthly subscription tiers (Starter, Pro, Pro Max),
+  each a flat base fee plus a per-seat (per-cleaner/user) add-on, billed
+  month-to-month with a 14-day free trial and no long-term contract. There is
+  no API pricing because there is no public API - Zapier access is included
+  at no separate charge on the Pro Max tier (and reachable indirectly via
+  Zapier's own plans on lower tiers), with no metered or usage-based line
+  item for programmatic access.
+notes: >-
+  Base monthly fees are corroborated directly from get.zenmaid.com/pricing.
+  Per-seat add-on amounts ($4 / $14 / $24 per user per tier) are sourced from
+  third-party review sites (Connecteam, G2, Capterra) that quote ZenMaid's
+  published rate card, since the live pricing page renders per-seat cost via
+  an interactive calculator rather than static text; reconcile against
+  get.zenmaid.com/pricing directly before quoting to a customer. SMS/text
+  messaging is billed separately and is not itemized here.
+sources:
+- https://get.zenmaid.com/pricing
+- https://connecteam.com/reviews/zenmaid/
+- https://www.g2.com/products/zenmaid-software/pricing
+- https://www.capterra.com/p/133875/ZenMaid-Software/pricing/
+plans:
+- id: zenmaid-starter
+  name: Starter
+  type: paid
+  description: >-
+    Entry tier capped at 40 appointments per month. Includes calendar,
+    dispatch, and map views, a limited set of automated SMS/email templates,
+    a mobile app without GPS tracking, online payments (Stripe/Square), and
+    invoicing. Chat-only support.
+  entries:
+  - label: Monthly Base Subscription
+    name: starter_monthly
+    type: flat
+    metric: subscription
+    limit: 40
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $19/month base (up to 40 appointments/month)
+    userMultiplied: false
+  - label: Additional Seat
+    name: starter_seat
+    type: flat
+    metric: seat
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $4/month per additional cleaner/user
+    userMultiplied: true
+  elements:
+  - name: Calendar and Dispatch
+  - name: Limited SMS and Email Templates
+  - name: Mobile App (no GPS)
+  - name: Online Payments
+  - name: Invoicing
+- id: zenmaid-pro
+  name: Pro
+  type: paid
+  description: >-
+    Mid tier for established cleaning businesses. Unlimited appointments, all
+    Starter features, plus digital checklists, GPS-tracked mobile app,
+    branded booking forms, expanded automated communications, reporting, and
+    payroll, with a free 1:1 setup call and contact/calendar transfer.
+  entries:
+  - label: Monthly Base Subscription
+    name: pro_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $39/month base (unlimited appointments)
+    userMultiplied: false
+  - label: Additional Seat
+    name: pro_seat
+    type: flat
+    metric: seat
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $14/month per additional cleaner/user
+    userMultiplied: true
+  elements:
+  - name: Unlimited Appointments
+  - name: Digital Checklists
+  - name: GPS Tracking
+  - name: Branded Booking Forms
+  - name: Reports and Payroll
+  - name: QuickBooks Integration
+- id: zenmaid-pro-max
+  name: Pro Max
+  type: paid
+  description: >-
+    Top tier. Everything in Pro, plus cleaner availability and PTO tracking,
+    customer service ratings, data export, Mailchimp and Zapier integration,
+    and custom-branded booking forms, with free 1:1 onboarding and
+    contact/calendar transfer. This is the only tier where Zapier - ZenMaid's
+    sole documented programmatic-access surface - is called out as an
+    included feature.
+  entries:
+  - label: Monthly Base Subscription
+    name: pro_max_monthly
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $49/month base (unlimited appointments)
+    userMultiplied: false
+  - label: Additional Seat
+    name: pro_max_seat
+    type: flat
+    metric: seat
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $24/month per additional cleaner/user
+    userMultiplied: true
+  elements:
+  - name: Availability and PTO Tracking
+  - name: Customer Service Ratings
+  - name: Data Export
+  - name: Mailchimp Integration
+  - name: Zapier Integration Included
+  - name: Custom-Branded Booking Forms
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
