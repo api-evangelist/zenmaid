@@ -32,6 +32,8 @@ modified: '2026-07-04'
 specificationVersion: '0.19'
 apis: []
 common:
+- type: DomainSecurity
+  url: security/zenmaid-domain-security.yml
 - type: Website
   url: https://www.zenmaid.com
 - type: LinkedIn
@@ -46,6 +48,8 @@ common:
   url: https://answers.zenmaid.com
 - type: Plans
   url: plans/zenmaid-plans-pricing.yml
+- type: Blog
+  url: https://www.zenmaid.com/feed/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
