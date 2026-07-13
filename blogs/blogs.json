@@ -1,0 +1,13 @@
+{
+  "repo": "zenmaid",
+  "feeds": [
+    {
+      "source": "https://www.zenmaid.com/feed/",
+      "feed_url": "https://www.zenmaid.com/feed/",
+      "title": "ZenMaid",
+      "saved": 0
+    }
+  ],
+  "fetched": "2026-07-11T11:43:46Z",
+  "post_count": 10
+}
