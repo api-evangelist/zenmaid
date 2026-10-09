@@ -37,8 +37,11 @@ accessModel:
   pricing: paid
   onboarding: open
   trial: true
-  try_now: true
-  public: true
+  try_now: false
+  public: false
+  gated: private
+  gated_source:
+  - tag:No Public API
   label: Paid (free trial) · Open access
   confidence: medium
   source:
@@ -52,7 +55,6 @@ tags:
 - Field Service
 - Scheduling
 - Zapier
-- No Public API
 created: '2026-07-04'
 modified: '2026-07-04'
 specificationVersion: '0.23'
@@ -79,3 +81,5 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-tags-removed:
+- No Public API
