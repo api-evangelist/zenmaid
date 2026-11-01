@@ -1,4 +1,4 @@
-# ZenMaid (zenmaid)
+# ZenMaid
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,68 +64,88 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-ZenMaid is scheduling and business-management software for maid and house cleaning services - booking, calendar/dispatch, automated SMS and email communication, GPS-verified clock-in/out on a cleaner mobile app, online payments and invoicing, payroll, and reporting. **ZenMaid has no public developer API.** There is no self-service developer portal, no published REST/GraphQL API reference, and no OpenAPI specification of its own. The only documented programmatic surface is a Zapier integration - built and maintained by ZenMaid against a private, undocumented backend API - with no API keys, base URL, endpoint reference, payload schema, or SDK published for third-party developers. This repository is documented as a stub because there is no public API to catalog.
+ZenMaid is scheduling and business-management software for maid and house cleaning services - booking, calendar/dispatch, automated SMS and email communication, GPS-verified clock-in/out on a cleaner mobile app, online payments and invoicing, payroll, and reporting. ZenMaid has no public, self-service developer portal, no published REST/GraphQL API reference, and no OpenAPI specification of its own. Its only documented programmatic surface is a Zapier integration (triggers - New Customer Created, Appointment Booked, Appointment Cancelled, Appointment Updated, Contact Created/Updated, One-Time Service Created/Updated, Recurring Service Created/Updated/Cancelled, Invoice Created, Invoice Paid; actions - Create Appointment, Create Booking, Create Cleaner, Create Customer) built and maintained by ZenMaid against a private, undocumented backend API. No API keys, base URL, endpoint reference, payload schema, or SDK are published for third-party developers; the public GitHub organization (github.com/zenmaid) has no public repositories. This entry is documented as a stub because there is no public API to catalog.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/zenmaid/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/zenmaid/refs/heads/main/apis.yml)
+**Areas:** Maid Service · Cleaning Business Software · Field Service · Scheduling · Zapier
 
-## Tags
+## ZenMaid on APIs.io
 
-- Maid Service
-- Cleaning Business Software
-- Field Service
-- Scheduling
-- Zapier
-- No Public API
+Everything profiled for ZenMaid is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/zenmaid/](https://apis.io/providers/zenmaid/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-07-04
-- **Modified:** 2026-07-04
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Security (1)
 
-None. ZenMaid does not publish a public API. See [review.yml](review.yml) for the full findings.
+Authentication, trust centre, and vulnerability disclosure.
 
-## Zapier Integration (not a public API)
+- [Zenmaid Domain Security](https://apis.io/security/zenmaid/zenmaid-domain-security/)
 
-ZenMaid's only documented automation surface is its official Zapier app (zapier.com/apps/zenmaid-nWD), which exposes:
+#### Plans and pricing (1)
 
-**Triggers**
+Published plans, tiers and prices.
 
-- New Customer Created
-- Appointment Booked
-- Appointment Cancelled
-- Appointment Updated
-- Contact Created
-- Contact Updated
-- One-Time Service Created
-- One-Time Service Updated
-- Recurring Service Created
-- Recurring Service Updated
-- Recurring Service Cancelled
-- Invoice Created
-- Invoice Paid
+- [Zenmaid Plans Pricing](https://apis.io/plans/zenmaid/zenmaid-plans-pricing/)
 
-**Actions**
+## Where to find this API
 
-- Create Appointment
-- Create Booking
-- Create Cleaner
-- Create Customer
-
-Zapier itself notes that payment processing (Square, Venmo, etc.) and transferring cleaning costs are not supported through this integration. These triggers and actions run against ZenMaid's own private backend API, which is not published, versioned, or documented for outside developers - there is no way for a third-party to call it directly outside of Zapier (or Zapier-compatible AI/MCP wrappers such as viaSocket's ZenMaid MCP server, which likewise sits on top of the same Zapier actions rather than a documented ZenMaid API).
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.zenmaid.com)
-- [LinkedIn](https://www.linkedin.com/company/zenmaid)
-- [GitHub Organization](https://github.com/zenmaid)
-- [Integrations](https://get.zenmaid.com/zapier)
 - [Documentation](https://answers.zenmaid.com/en/collections/39144-integrations)
-- [Help Center](https://answers.zenmaid.com)
-- [Plans](plans/zenmaid-plans-pricing.yml)
+- [Blog](https://www.zenmaid.com/feed/)
+- [GitHub](https://github.com/zenmaid)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 8.7** — minimal · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 16.7 |
+| Access clarity | 7.9 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/zenmaid/](https://apis.io/providers/zenmaid/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for ZenMaid: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/zenmaid/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
